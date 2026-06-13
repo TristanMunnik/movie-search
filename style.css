@@ -1,0 +1,80 @@
+body {
+    background-color: rgb(17, 17, 17);
+    padding: 0.5rem;
+    font-family: Arial, sans-serif;
+    color: rgb(245, 172, 172);
+}
+
+header {
+    background-color: rgb(233, 52, 52);
+    border-radius: 10px;
+    margin: 2rem;
+    padding: 1rem 2rem;
+}
+
+main {
+    margin: 2rem;
+}
+
+#searchInput {
+    background-color: rgb(245, 172, 172);
+    border-radius: 6px;
+    margin: 1rem;
+    padding: 10px 15px;    
+    border: none;          
+    font-size: 16px;  
+    width: 300px;           
+}
+
+
+#searchBtn {
+    background-color: rgb(233, 52, 52);
+    border-radius: 0.5rem;
+    border: none;      
+    font-size: 16px; 
+    cursor: pointer; 
+    margin: 1rem;
+}
+
+#searchBtn:hover {
+    background-color: rgb(200, 30, 30);
+}
+
+.searchBar {
+    display: flex;
+    gap: 10px;
+    padding: 1rem 2rem;
+    justify-content: center;
+}
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+}
+
+.movie-card {
+    background-color: rgb(30, 30, 30);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;    /* stops images stretching */
+}
+
+.movie-card h3 {
+    padding: 10px;
+    font-size: 14px;
+    color: rgb(245, 172, 172);
+}
+
+.movie-card p {
+    color: rgb(180, 180, 180);
+    font-size: 13px;
+}
