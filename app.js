@@ -15,6 +15,8 @@ searchBtn.addEventListener('click', function () {
     const apiKey = "bdc3f806";
     const url = `http://www.omdbapi.com/?s=${searchTerm}&apikey=${apiKey}`;
 
+    resultsDiv.innerHTML = '<p>Searching...</p>';
+
     fetch(url)
         .then(function (respone) {
             return respone.json();
