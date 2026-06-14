@@ -22,10 +22,15 @@ searchBtn.addEventListener('click', function () {
             return respone.json();
         })
         .then(function(data) {
-            
-            const movies = data.Search;
 
             resultsDiv.innerHTML = '';
+
+            if(data.Response === 'False') {
+                resultsDiv.innerHTML = '<p>No movies found</p>';
+                return;
+            }
+
+            const movies = data.Search;
 
             movies.forEach(function(movie) {
                 const movieCard = document.createElement('div');
