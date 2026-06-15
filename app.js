@@ -4,9 +4,7 @@ const searchInput = document.getElementById("searchInput");
 
 const resultsDiv = document.getElementById("results");
 
-searchBtn.addEventListener('click', function() {
-    searchMovies();
-});
+const movieSearchText = document.getElementById("movieSearchText");
 
 searchInput.addEventListener('keypress', function(event) {
     if(event.key === "Enter") {
@@ -19,6 +17,7 @@ function searchMovies() {
 
     if(searchTerm === '') {
         alert("Please enter a movie name");
+        return;
     }
 
     resultsDiv.innerHTML = "<p>Searching...</p>";
@@ -31,6 +30,8 @@ function searchMovies() {
             return response.json();
         })
         .then(function(data) {
+            movieSearchText.innerHTML = `<p>search results for ${searchInput.value} </p>`;
+            searchInput.value = '';
             resultsDiv.innerHTML = '';
 
             if(data.Response === 'False') {
@@ -39,9 +40,11 @@ function searchMovies() {
             }
 
             const movies = data.Search;
+            
 
             movies.forEach(function(movie){
                 const movieCard = document.createElement('div');
+
                 movieCard.className = 'movie-card';
 
                 movieCard.innerHTML = `
@@ -53,6 +56,8 @@ function searchMovies() {
                 resultsDiv.appendChild(movieCard);
 
             })
+
+
             .catch(function(error) {
                 console.log('error: ' , error);
             })
